@@ -134,14 +134,6 @@ include $(BUILD_STATIC_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_MODULE := libcutils
 LOCAL_WHOLE_STATIC_LIBRARIES := libcutils
-ifeq ($(BOARD_NEEDS_CUTILS_LOG),true)
-LOCAL_WHOLE_STATIC_LIBRARIES := libcutils
-else
-LOCAL_SRC_FILES := $(commonSources) $(targetSources)
-endif
-LOCAL_CFLAGS += $(targetCFLAGS) $(targetSmpFlag)
-
-LOCAL_C_INCLUDES := $(KERNEL_HEADERS)
 LOCAL_SHARED_LIBRARIES := liblog
 LOCAL_CFLAGS += $(targetSmpFlag)
 include $(BUILD_SHARED_LIBRARY)
